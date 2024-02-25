@@ -4588,7 +4588,7 @@ h1.page-title + .tag-cloud-list {
   box-shadow: 0 0 8px 0 rgba(232,237,250,0.6), 0 2px 4px 0 rgba(232,237,250,0.5);
 }
 #post .post-copyright .post-copyright-meta {
-  color: #1b1f23;
+  color: rgba(255,255,255,0.5);
   font-weight: bold;
 }
 #post .post-copyright .post-copyright-meta i {
@@ -4603,6 +4603,7 @@ h1.page-title + .tag-cloud-list {
 }
 #post .post-copyright .post-copyright-info a:hover {
   text-decoration: none;
+  color: var(--white);
 }
 #post .post-outdate-notice {
   position: relative;
@@ -6849,6 +6850,13 @@ div#tag{
 /* 分类页面 */
 div#category{
   background: rgba(0, 0, 0);
+}
+
+.post-license {
+    color: rgb(0, 0, 0);
+}
+.post-meta {
+    color: rgba(0, 0, 0, 0.292);
 }
 
 .loading-img {
