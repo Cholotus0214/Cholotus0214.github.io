@@ -6868,6 +6868,12 @@ div#category{
     background-color: transparent!important;
 }
 
+:root {
+    color-scheme: dark;
+    --body-bgcolor: #000000; /* 主体背景色 */
+    --textcolor: #ccc; /* 主体文字颜色，此处为灰色 */
+  }
+
 /* background: url(http://xxxxxx.com/xxx.jpg)  */
 
 #article-container h1:before,
