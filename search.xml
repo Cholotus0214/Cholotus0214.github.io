@@ -4,6 +4,27 @@
   
     
     <entry>
+      <title>UGUI渲染顺序</title>
+      <link href="/2024/03/03/Unity/UI/UGUI%E6%B8%B2%E6%9F%93%E9%A1%BA%E5%BA%8F/"/>
+      <url>/2024/03/03/Unity/UI/UGUI%E6%B8%B2%E6%9F%93%E9%A1%BA%E5%BA%8F/</url>
+      
+        <content type="html"><![CDATA[<h2 id="UGUI渲染顺序"><a href="#UGUI渲染顺序" class="headerlink" title="UGUI渲染顺序"></a>UGUI渲染顺序</h2><p><strong>1，当有多个canvas并且渲染模式都为Overlay。</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">这种情况下，渲染顺序是由canvas组件下的Sort Order决定的，值越大的越后渲染。</span><br></pre></td></tr></table></figure><p><strong>2，当有多个canvas并且渲染模式都为Overlay。</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">这种情况下，渲染顺序是由canvas组件下的Sort Order决定的，值越大的越后渲染。</span><br><span class="line">如果Depth值相同，那么由canvas组件下的Sortint Layer顺序决定，顺序越后则越后渲染。</span><br><span class="line">如果Depth值和Layer值都相同的情况下，渲染顺序由Order in Layer决定，值越大越后渲染。 （注意：若Rendener Camera都是同一个摄像机，则不考虑Depth情况）</span><br></pre></td></tr></table></figure><p><strong>3，当有多个canvas并且渲染模式都为World。</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">这种情况下，渲染顺序由canvas组件下的Sortint Layer顺序决定，顺序越后则越后渲染。</span><br><span class="line">如果Layer值都相同的情况下，渲染顺序由Order in Layer决定，值越大越后渲染。</span><br><span class="line">特别注意，当Layer和Order值都相同的情况下，此时渲染顺序由canvas距离Render Camera的距离决定，**距离越近越后渲染。**（ 只有World模式有这种情况，因其他模式下canvas都是位置固定不可移动的。并且以上情况只考虑canvas都出现在Render Camera摄像范围的情况下。）</span><br></pre></td></tr></table></figure><p><strong>4，当有多个canvas并且渲染模式都存在的情况下</strong>。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">这种情况下，首先Overlay模式的canvas永远是最后渲染，并且同为Overlay模式的canvas在Sort Order的值越大时越后渲染。</span><br><span class="line">其次，Camera和Overlay同时存在的情况下有两种情况：若使用的不同的相机，则由摄像机的Depth决定，值越大越后渲染。若使用的是相同的相机，则是由canvas距离摄像机的距离决定的，距离越近的越后渲染。</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Unity </category>
+          
+          <category> UI </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>UGUI中Rebatch和Rebuild</title>
       <link href="/2024/03/03/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/UGUI%E4%B8%ADRebatch%E5%92%8CRebuild/"/>
       <url>/2024/03/03/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/UGUI%E4%B8%ADRebatch%E5%92%8CRebuild/</url>
